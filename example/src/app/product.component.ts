@@ -9,13 +9,38 @@ import { Product } from './product.model';
   styleUrls: ['product.component.css'],
 })
 export class ProductComponent {
+  // custom pipes
+  // text ='Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, at.';
+
   model: ProductRepository = new ProductRepository();
 
-  email = 'konulsi@code.edu.az';
-
-  onKeyUp(){
-     console.log(this.email);
+  addProduct() {
+    this.model.addProduct(
+      new Product(6, 'Samsung S10', 'iyi telefon', '1.jpg', 5000)
+    );
   }
+
+  deleteProduct(product: Product) {
+    this.model.deleteProduct(product);
+  }
+
+  updateProduct(product: Product){
+    product.name = "updated";
+  }
+
+  // productName: string = this.model.getProductById(1).name;
+
+  // email = 'konulsi@code.edu.az';
+
+  // today: number = Date.now();
+  // title: string = 'Angular kursu';
+  // students: number = 21536;
+  // price: number = 395.9756;
+  // completed: number = 0.26;
+
+  // onKeyUp(){
+  //    console.log(this.email);
+  // }
 
   // disabled = true;
   // getClasses(id: number): string {
