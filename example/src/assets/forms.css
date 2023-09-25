@@ -1,0 +1,9 @@
+.form-control.ng-touched.ng-invalid {
+  /* inputan konumlanib yeni girib chixib amma yazmayib hechne */
+  border-left: 5px solid red;
+}
+
+.form-control.ng-dirty.ng-valid {
+  /* inputa nese yazilib ichinde nese var ve ichini bosh qoymayib yazib */
+  border-left: 5px solid green;
+}

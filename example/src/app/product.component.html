@@ -149,9 +149,197 @@ yeni componentde deyishiklik olub html hissede qeyd olunur. bir class elave edil
   </div>
 </ng-template> -->
 
-
 <!-- <input type="text" appInputEmail>
 <br> -->
 
+<!-- <admin-products></admin-products> -->
 
-<admin-products></admin-products>
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-8">
+      <div class="m-3">
+        <form #form="ngForm" (ngSubmit)="submitForm(form)">
+          <div
+            class="bg-danger text-white p-3 my-2"
+            *ngIf="formSubmitted && form.invalid"
+          >
+            Bir hata olushdu. Bilgilerinizi kontrol ediniz.
+            <ul>
+              <li *ngFor="let error of getFormValidationErrors(form)">
+                {{ error }}
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-info text-white m-2 p-2">
+            {{ jsonProduct }}
+          </div>
+
+          <div class="form-group">
+            <label for="pName">Name</label>
+            <input
+              required
+              minlength="3"
+              maxlength="10"
+              pattern="^[A-Za-z ]+$"
+              [(ngModel)]="newProduct.name"
+              name="name"
+              #name="ngModel"
+              type="text"
+              class="form-control"
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="(formSubmitted || name.dirty) && name.invalid"
+            >
+              <ul>
+                <li *ngFor="let error of getValidationErrors(name)">
+                  {{ error }}
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Description</label>
+            <textarea
+              required
+              [(ngModel)]="newProduct.description"
+              type="text"
+              name="description"
+              #description="ngModel"
+              class="form-control"
+            ></textarea>
+            <div
+              class="alert alert-danger"
+              *ngIf="
+                (formSubmitted || description.dirty) && description.invalid
+              "
+            >
+              <ul>
+                <li *ngFor="let error of getValidationErrors(description)">
+                  {{ error }}
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Price</label>
+            <input
+              required
+              [(ngModel)]="newProduct.price"
+              type="text"
+              name="price"
+              #price="ngModel"
+              class="form-control"
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="(formSubmitted || price.dirty) && price.invalid"
+            >
+              <ul>
+                <li *ngFor="let error of getValidationErrors(price)">
+                  {{ error }}
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Image Url</label>
+            <input
+              required
+              [(ngModel)]="newProduct.imageUrl"
+              type="text"
+              name="imageUrl"
+              #imageUrl="ngModel"
+              class="form-control"
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="(formSubmitted || imageUrl.dirty) && imageUrl.invalid"
+            >
+              <ul>
+                <li *ngFor="let error of getValidationErrors(imageUrl)">
+                  {{ error }}
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="formSubmitted && form.invalid"
+            [class.btn-secondary]="formSubmitted && form.invalid"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- reactive form -->
+
+<!-- <div class="container mt-3">
+  <div class="row">
+    <div class="col-8">
+      <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label>Name</label>
+          <input class="form-control" formControlName="name" />
+          <div *ngIf="name.touched && name.invalid" class="alert alert-danger">
+            <ul>
+              <li *ngIf="name.errors['required']">Name is required.</li>
+              <li *ngIf="name.errors['minlength']">
+                Min. {{ name.errors["minlength.requiredLength"] }} character.
+              </li>
+              <li *ngIf="name.errors['maxlength']">
+                Max. {{ name.errors["maxlength.requiredLength"] }} character.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea
+            class="form-control"
+            formControlName="description"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label>Price</label>
+          <input class="form-control" formControlName="price" />
+        </div>
+        <div class="form-group">
+          <label>Image Url</label>
+          <input class="form-control" formControlName="imageUrl" />
+          <div
+            *ngIf="imageUrl.touched && imageUrl.invalid"
+            class="alert alert-danger"
+          >
+            <ul>
+              <li *ngIf="imageUrl.errors['required']">Name is required.</li>
+              <li *ngIf="imageUrl.errors['wrongExtension']">
+                Wrong Extension.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          (click)="updateProduct()"
+          class="btn btn-primary mt-3"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div> -->
+
+<posts></posts>

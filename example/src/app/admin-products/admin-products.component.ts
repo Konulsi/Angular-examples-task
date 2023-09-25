@@ -14,7 +14,6 @@ export class AdminProductsComponent {
   constructor() {
     this.model = new ProductRepository();
     this.products = this.model.getProducts();
-    console.log(this.products);
   }
 
   getSelected(product: Product): boolean {
@@ -29,15 +28,26 @@ export class AdminProductsComponent {
     this.selectedProduct = product;
   }
   keyupName(pName) {
-    this.selectedProduct = pName.value;
+    this.selectedProduct.name = pName.value;
   }
   keyupPrice(pPrice) {
-    this.selectedProduct = pPrice.value;
+    this.selectedProduct.price = pPrice.value;
   }
   keyupImageUrl(pImageUrl) {
-    this.selectedProduct = pImageUrl.value;
+    this.selectedProduct.imageUrl = pImageUrl.value;
   }
   keyupDescription(pDescription) {
-    this.selectedProduct = pDescription.value;
+    this.selectedProduct.description = pDescription.value;
   }
+
+  SaveChanges() {
+    const p = this.model.getProductById(this.selectedProduct.id);
+    p.name = this.selectedProduct.name;
+    p.description = this.selectedProduct.description;
+    p.price = this.selectedProduct.price;
+    p.imageUrl = this.selectedProduct.imageUrl;
+    this.selectedProduct = null;
+  }
+
+  
 }
